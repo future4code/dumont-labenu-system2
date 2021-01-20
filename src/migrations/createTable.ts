@@ -29,7 +29,7 @@ const createTables = async (): Promise<void> => {
              name VARCHAR(60) NOT NULL, 
              startdate DATE NOT NULL,
              finishdate DATE NOT NULL,
-             module ENUM ('1', '2', '3', '4', '5', '6', '7') NULL,
+             module ENUM ('1', '2', '3', '4', '5', '6', '7', 'undefined') DEFAULT "undefined",
              type ENUM ("whole class", "night class"),
              teacher_id VARCHAR(60) UNIQUE NULL,
              student_id VARCHAR(60) UNIQUE NULL,

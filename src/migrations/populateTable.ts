@@ -42,10 +42,10 @@ const populateTeacher = async (): Promise<void> => {
 const populateMission = async (): Promise<void> => {
     try {
         await dataBase.raw(`
-   INSERT INTO Mission(id, name, startdate, finishdate, module, type, teacher_id, student_id)
+   INSERT INTO Mission(id, name, startdate, finishdate, module, type)
    VALUES   
-   ('1', 'Dumont', '2019-06-01', '2021-04-01', '4', 'whole class', '3', '1'),
-   ('2', 'Jackson', '2019-01-04', '2020-07-30', '7', 'night class', '4', '2');
+   ('1', 'Dumont', '2019-06-01', '2021-04-01', '4', 'whole class'),
+   ('2', 'Jackson', '2019-01-04', '2020-07-30', '7', 'night class');
 `);
 
         console.log("Tabela mission criado com sucesso!")

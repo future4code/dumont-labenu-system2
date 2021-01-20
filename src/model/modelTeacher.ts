@@ -1,6 +1,6 @@
 import dataBase from "../config/dataBase"
 
-export const insertStudent = async (name: string, email: string, birthdate: string, hobby: string): Promise<any> => {
+export const insertTeacher = async (name: string, email: string, birthdate: string, speciality: string): Promise<any> => {
 
     try {
         await dataBase
@@ -9,9 +9,9 @@ export const insertStudent = async (name: string, email: string, birthdate: stri
             name,
             email,
             birthdate,
-            hobby
+            speciality
           })
-          .into("Student"); 
+          .into("Teacher"); 
         
     } catch (error) {
         throw new Error(error.sqlMessage || error.message);

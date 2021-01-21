@@ -54,9 +54,9 @@ export const deleteStudentsById = async (id: string): Promise<any> => {
 
     try {
         await dataBase
-        .delete()
-        .from("Student")
-        .where({ id });
+            .delete()
+            .from("Student")
+            .where({ id });
 
     } catch (error) {
         throw new Error(error.sqlMessage || error.message);
@@ -75,6 +75,30 @@ export const removeStudentFromMission = async (id: string): Promise<any> => {
     }
 }
 
+export const changeStudentFromMission = async (id: string, mission_id: string): Promise<any> => {
+
+    try {
+        await dataBase.raw(`
+            UPDATE Student SET mission_id="${mission_id}" WHERE id = "${id}";
+        `)
+
+    } catch (error) {
+        throw new Error("Verifique o Id da turma!");
+    }
+}
+
+export const getAllStudents = async (): Promise<any> => {
+
+    try {
+        const result = await dataBase.raw(`
+            SELECT * FROM Student            
+        `)
+        return result[0]
+
+    } catch (error) {
+        throw new Error(error.sqlMessage || error.message);
+    }
+}
 
 
 

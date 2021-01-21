@@ -5,17 +5,21 @@
 ```sh
 1. Estudantes 
 
-    Representa estudantes da instituição. Possuem: id, nome, email, data de nascimento e os principais hobbies deles.
+    Representa estudantes da instituição. Possuem:
+    id, nome, email, data de nascimento e os principais hobbies deles.
 ``` 
 ```sh
 2. Docente
 
-    Representa docentes da instituição. Possuir: id, nome, email, data de nascimento e todas as especialidades deles.
+    Representa docentes da instituição. Possuem: 
+    id, nome, email, data de nascimento e todas as especialidades deles.
  ```
  ```sh
 3. Turma
 
-    Composta das seguintes características: id, nome, data de início, data de término, lista de professores responsáveis, uma lista de alunos e módulo atual em que a turma está.
+    Composta das seguintes características: 
+    id, nome, data de início, data de término, lista de professores responsáveis,  lista de alunos 
+    e módulo atual em que a turma está.
  ```
 
  

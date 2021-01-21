@@ -1,4 +1,4 @@
-## Projeto de Introdução ao Backend LabenuSystem:
+## Projeto de Introdução ao Backend LabenuSystem
 
 - Criação de um sistema que represente o básico da organização de uma escola que possui as seguintes entidades:
 

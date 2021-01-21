@@ -36,7 +36,7 @@ export const createMission = async (req: Request, res: Response): Promise<any> =
 
 export const createStudentMission = async (req: Request, res: Response): Promise<any> => {
 
-    try {   
+    try {
         const keys = Object.keys(req.body)
 
         for (const key of keys) {
@@ -44,36 +44,36 @@ export const createStudentMission = async (req: Request, res: Response): Promise
                 return res.send("Por gentileza preencha todos os campos!")
         }
 
-            const { mission_id, id } = req.body
+        const { mission_id, id } = req.body
 
-            await insertStudent(mission_id, id) as string
+        await insertStudent(mission_id, id) as string
 
-            res.status(200).send(`Aluno ${mission_id} inserido na turma ${id}!`)
+        res.status(200).send(`Aluno ${mission_id} inserido na turma ${id}!`)
 
-        } catch (error) {
-            res.status(400).send({ message: error.message });
-            console.log(error.sqlMessage || error.message);
-        }
+    } catch (error) {
+        res.status(400).send({ message: error.message });
+        console.log(error.sqlMessage || error.message);
     }
+}
 
-    export const createTeacherMission = async (req: Request, res: Response): Promise<any> => {
+export const createTeacherMission = async (req: Request, res: Response): Promise<any> => {
 
-        try {   
-            const keys = Object.keys(req.body)
-    
-            for (const key of keys) {
-                if (req.body[key] == "")
-                    return res.send("Por gentileza preencha todos os campos!")
-            }
-    
-                const { mission_id, id } = req.body
-    
-                await insertTeacher(mission_id, id) as string
-    
-                res.status(200).send(`Aluno ${mission_id} inserido na turma ${id}!`)
-    
-            } catch (error) {
-                res.status(400).send({ message: error.message });
-                console.log(error.sqlMessage || error.message);
-            }
+    try {
+        const keys = Object.keys(req.body)
+
+        for (const key of keys) {
+            if (req.body[key] == "")
+                return res.send("Por gentileza preencha todos os campos!")
         }
+
+        const { mission_id, id } = req.body
+
+        await insertTeacher(mission_id, id) as string
+
+        res.status(200).send(`Professor ${mission_id} inserido na turma ${id}!`)
+
+    } catch (error) {
+        res.status(400).send({ message: error.message });
+        console.log(error.sqlMessage || error.message);
+    }
+}

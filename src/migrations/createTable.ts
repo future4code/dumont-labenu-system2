@@ -5,27 +5,28 @@ const createTables = async (): Promise<void> => {
     try {
 
         await dataBase.raw(`
-        CREATE TABLE Mission(
-             id VARCHAR(20) PRIMARY KEY NOT NULL, 
-             name VARCHAR(60) NOT NULL, 
-             startdate DATE NOT NULL,
-             finishdate DATE NOT NULL,
-             module ENUM ('1', '2', '3', '4', '5', '6', '7', 'undefined') DEFAULT "undefined",
-             type ENUM ("whole class", "night class")
+            CREATE TABLE Mission(
+            id VARCHAR(20) PRIMARY KEY NOT NULL, 
+            name VARCHAR(60) NOT NULL, 
+            startdate DATE NOT NULL,
+            finishdate DATE NOT NULL,
+            module ENUM ('1', '2', '3', '4', '5', '6', '7', 'undefined') DEFAULT "undefined",
+            type ENUM ("whole class", "night class")
         );
         `)
 
         await dataBase.raw(`
-        CREATE TABLE Student(
-            id VARCHAR(255) PRIMARY KEY NOT NULL, 
-            name VARCHAR(60) NOT NULL, 
-            email VARCHAR(50) UNIQUE NOT NULL, 
-            birthdate DATE NOT NULL,
-            hobby VARCHAR(255) NULL,
-            mission_id VARCHAR(20) NULL,
-            FOREIGN KEY (mission_id) REFERENCES Mission(id)
-        );
-         `)
+            CREATE TABLE Student(
+                id VARCHAR(255) PRIMARY KEY NOT NULL, 
+                name VARCHAR(60) NOT NULL, 
+                email VARCHAR(50) UNIQUE NOT NULL, 
+                birthdate DATE NOT NULL,
+                hobby VARCHAR(255) NULL,
+                mission_id VARCHAR(20) NULL,
+                FOREIGN KEY (mission_id) REFERENCES Mission(id)
+                ON UPDATE CASCADE
+            );
+        `)
 
         await dataBase.raw(`
         CREATE TABLE Teacher(

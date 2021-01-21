@@ -35,3 +35,15 @@ export const selectTeachersByMission = async (id: string): Promise<any> => {
         throw new Error(error.sqlMessage || error.message);
     }
 }   
+
+export const removeTeacherFromMission = async (id: string): Promise<any> => {
+
+    try {
+        await dataBase.raw(`
+            UPDATE Teacher SET mission_id=null WHERE id = "${id}";
+        `)
+
+    } catch (error) {
+        throw new Error(error.sqlMessage || error.message);
+    }
+}

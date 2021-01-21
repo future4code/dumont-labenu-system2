@@ -1,5 +1,5 @@
 import express, { Response, Request } from "express"
-import { insertTeacher, selectTeachersByMission } from "../model/modelTeacher"
+import { insertTeacher, selectTeachersByMission, removeTeacherFromMission } from "../model/modelTeacher"
 import { formatStringDate } from "../util/convertData"
 
 
@@ -48,3 +48,24 @@ export const getTeachersByMission = async (req: Request, res: Response): Promise
         console.log(error.sqlMessage || error.message);
     }
 }
+
+export const removeTeacher = async (req: Request, res: Response): Promise<any> => {
+
+    try {
+        const id = req.params.id as string
+
+        if(!id) {
+            res.statusCode = 404
+            throw new Error("Informe o ID do professor para remover da turma!")
+        }
+
+        await removeTeacherFromMission(id)
+
+        res.status(200).send({ message: "Professor removido da turma com sucesso!"})
+
+    } catch (error) {
+        res.status(400).send({ message: error.message });
+        console.log(error.sqlMessage || error.message);
+    }
+}
+

@@ -50,6 +50,31 @@ export const selectStudentByMission = async (id: string): Promise<any> => {
     }
 }
 
+export const deleteStudentsById = async (id: string): Promise<any> => {
+
+    try {
+        await dataBase
+        .delete()
+        .from("Student")
+        .where({ id });
+
+    } catch (error) {
+        throw new Error(error.sqlMessage || error.message);
+    }
+}
+
+export const removeStudentFromMission = async (id: string): Promise<any> => {
+
+    try {
+        await dataBase.raw(`
+            UPDATE Student SET mission_id=null WHERE id = "${id}";
+        `)
+
+    } catch (error) {
+        throw new Error(error.sqlMessage || error.message);
+    }
+}
+
 
 
 

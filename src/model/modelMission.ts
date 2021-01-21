@@ -19,12 +19,27 @@ export const insertMission = async (name: string, startdate: string, finishdate:
     }
 }
 
-export const insertStudent = async (student_id: string, id: string): Promise<any> => {
+export const insertStudent = async (mission_id: string, id: string): Promise<any> => {
 
     try {
         await dataBase.raw (`
-            UPDATE Mission
-            SET student_id = ${student_id}
+            UPDATE Student
+            SET mission_id = ${mission_id}
+            WHERE id = ${id}
+        `)
+            
+
+    } catch (error) {
+        throw new Error(error.sqlMessage || error.message);
+    }
+}
+
+export const insertTeacher = async (mission_id: string, id: string): Promise<any> => {
+
+    try {
+        await dataBase.raw (`
+            UPDATE Teacher
+            SET mission_id = ${mission_id}
             WHERE id = ${id}
         `)
             

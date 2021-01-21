@@ -22,7 +22,7 @@ const createTables = async (): Promise<void> => {
             email VARCHAR(50) UNIQUE NOT NULL, 
             birthdate DATE NOT NULL,
             hobby VARCHAR(255) NULL,
-            mission_id VARCHAR(20) UNIQUE NULL,
+            mission_id VARCHAR(20) NULL,
             FOREIGN KEY (mission_id) REFERENCES Mission(id)
         );
          `)
@@ -34,7 +34,7 @@ const createTables = async (): Promise<void> => {
             email VARCHAR(50) UNIQUE NOT NULL,
             birthdate DATE NOT NULL,
             speciality ENUM ("React", "Redux", "CSS", "Testes", "Typescript", "Programação Orientada a Objetos", "Backend"),
-            mission_id VARCHAR(20) UNIQUE NULL,
+            mission_id VARCHAR(20) NULL,
             FOREIGN KEY (mission_id) REFERENCES Mission(id)
         );
         `)

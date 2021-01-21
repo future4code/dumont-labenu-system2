@@ -1,5 +1,5 @@
 import express, { Response, Request } from "express"
-import { insertMission, insertStudent } from "../model/modelMission"
+import { insertMission, insertStudent, insertTeacher } from "../model/modelMission"
 import { formatStringDate } from "../util/convertData"
 
 
@@ -44,14 +44,36 @@ export const createStudentMission = async (req: Request, res: Response): Promise
                 return res.send("Por gentileza preencha todos os campos!")
         }
 
-            const { student_id, id } = req.body
+            const { mission_id, id } = req.body
 
-            await insertStudent(student_id, id) as string
+            await insertStudent(mission_id, id) as string
 
-            res.status(200).send(`Aluno ${student_id} inserido na turma ${id}!`)
+            res.status(200).send(`Aluno ${mission_id} inserido na turma ${id}!`)
 
         } catch (error) {
             res.status(400).send({ message: error.message });
             console.log(error.sqlMessage || error.message);
         }
     }
+
+    export const createTeacherMission = async (req: Request, res: Response): Promise<any> => {
+
+        try {   
+            const keys = Object.keys(req.body)
+    
+            for (const key of keys) {
+                if (req.body[key] == "")
+                    return res.send("Por gentileza preencha todos os campos!")
+            }
+    
+                const { mission_id, id } = req.body
+    
+                await insertTeacher(mission_id, id) as string
+    
+                res.status(200).send(`Aluno ${mission_id} inserido na turma ${id}!`)
+    
+            } catch (error) {
+                res.status(400).send({ message: error.message });
+                console.log(error.sqlMessage || error.message);
+            }
+        }

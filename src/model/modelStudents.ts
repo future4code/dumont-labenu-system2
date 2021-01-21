@@ -50,6 +50,24 @@ export const selectStudentByMission = async (id: string): Promise<any> => {
     }
 }
 
+export const selectStudentByHobby = async (hobby: string): Promise<any> => {
+
+    try {
+        const result = await dataBase.raw(`
+        SELECT hobby, id, name  
+        FROM Student
+        WHERE hobby = '${hobby}'
+        GROUP BY hobby, id, name;
+        `)
+
+        return result[0]
+
+    } catch (error) {
+        throw new Error(error.sqlMessage || error.message);
+    }
+}
+
+
 export const deleteStudentsById = async (id: string): Promise<any> => {
 
     try {
@@ -99,6 +117,10 @@ export const getAllStudents = async (): Promise<any> => {
         throw new Error(error.sqlMessage || error.message);
     }
 }
+
+
+
+
 
 
 

@@ -4,7 +4,7 @@ const router = express.Router();
 
 //Controller
 import { createMission, createStudentMission, createTeacherMission } from '../controller/missionController';
-import { createStudent, getAgeById, getStudentsByMission, deleteStudents, removeStudent, putStudentsMission } from '../controller/studentsController';
+import { createStudent, getAgeById, getStudentsByMission, deleteStudents, removeStudent, putStudentsMission, getStudentsByHobby } from '../controller/studentsController';
 import { createTeacher, getTeachersByMission, removeTeacher } from '../controller/teacherController';
 
 //Rotas para createStudent, createTeacher, createMission
@@ -20,5 +20,6 @@ router.delete("/student-delete/:id", deleteStudents);
 router.put("/student-remove-mission/:id", removeStudent);
 router.put("/teacher-remove-mission/:id", removeTeacher);
 router.put("/change-student-mission", putStudentsMission);
+router.get("/students-hobby", getStudentsByHobby);
 
 export default router;

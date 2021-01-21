@@ -1,5 +1,5 @@
 import { Response, Request } from "express"
-import { insertStudent, selectAgeById, selectStudentByMission, deleteStudentsById, removeStudentFromMission, changeStudentFromMission, getAllStudents } from "../model/modelStudents"
+import { insertStudent, selectAgeById, selectStudentByMission, deleteStudentsById, removeStudentFromMission, changeStudentFromMission, getAllStudents, selectStudentByHobby } from "../model/modelStudents"
 import { formatStringDate } from "../util/convertData"
 
 
@@ -65,6 +65,30 @@ export const getStudentsByMission = async (req: Request, res: Response): Promise
         if (!result.length) {
             res.statusCode = 404
             throw new Error("Não foram encontrados estudantes para o ID informado!")
+        }
+
+        res.status(200).send(result)
+
+    } catch (error) {
+        res.status(400).send({ message: error.message });
+        console.log(error.sqlMessage || error.message);
+    }
+}
+export const getStudentsByHobby = async (req: Request, res: Response): Promise<any> => {
+
+    try {
+        const hobby = req.query.hobby as string
+
+        if (!hobby) {
+            res.statusCode = 404
+            throw new Error("Informe um hobby da turma!")
+        }
+
+        const result = await selectStudentByHobby(hobby)
+
+        if (!result.length) {
+            res.statusCode = 404
+            throw new Error("Não foram encontrados estudantes para esse hobby!")
         }
 
         res.status(200).send(result)

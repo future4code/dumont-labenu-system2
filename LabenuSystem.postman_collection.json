@@ -1,0 +1,360 @@
+{
+	"info": {
+		"_postman_id": "ba7f2464-15ab-4401-beb9-44fae05a1a98",
+		"name": "LabenuSystem",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "AddTeacherMission",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"mission_id\": \"1\",\r\n    \"id\": \"2\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3003/teacher-mission",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"teacher-mission"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "AddStudentMission",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"mission_id\": \"1611174114681\",\r\n    \"id\": \"3\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3003/student-mission",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"student-mission"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RemoveStudentFromMission",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3003/student-remove-mission/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"student-remove-mission",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "",
+							"type": "string"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "ChangeStudentFromMission",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"mission_id\": \"3\",\r\n    \"id\": \"10\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3003/change-student-mission",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"change-student-mission"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "RemoveTeacherFromMission",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3003/teacher-remove-mission/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"teacher-remove-mission",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "",
+							"type": "string"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetAgeById",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3003/student/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"student",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "",
+							"type": "string"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetStudentsByMission",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3003/students?id=:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"students"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": ":id"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetTeachersByMission",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3003/teachers?id=:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"teachers"
+					],
+					"query": [
+						{
+							"key": "id",
+							"value": ":id"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetStudentsByHobby",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3003/students-hobby?hobby=:hobby",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"students-hobby"
+					],
+					"query": [
+						{
+							"key": "hobby",
+							"value": ":hobby"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GetTeachersByMission",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3003/delete-student/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"delete-student",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "",
+							"type": "string"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateStudent",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"João\",\r\n    \"email\": \"joao@email.com\",\r\n    \"birthdate\": \"24/06/1988\",\r\n    \"hobby\": \"Dormir\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3003/create-student",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"create-student"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateTeacher",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"João\",\r\n    \"email\": \"joao@email.com\",\r\n    \"birthdate\": \"24/06/1988\",\r\n    \"speciality\": \"Backend\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3003/create-teacher",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"create-teacher"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "CreateMission",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Dumont\",\r\n    \"startdate\": \"01/06/2020\",\r\n    \"finishdate\": \"01/04/2021\",\r\n    \"module\": \"4\",\r\n    \"type\": \"whole class\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3003/create-mission",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3003",
+					"path": [
+						"create-mission"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

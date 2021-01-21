@@ -4,8 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "setup": "tsc && node ./build/migrations/createTable.js",
-    "populate": "tsc && node ./build/migrations/populateTable.js",
+    "start": "tsc && node ./build/index.js",
+    "createTable": "tsc && node ./build/migrations/createTable.js",
+    "populateTable": "tsc && node ./build/migrations/populateTable.js",
     "dev": "ts-node-dev ./src/index.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

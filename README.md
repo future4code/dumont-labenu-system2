@@ -122,8 +122,15 @@ npm run dev
 npm run start
 ```
 ```
-# Inicie o local host
+# Inicie o localhost
 $ npm start
+```
+
+```
+# Teste no Postman:
+$ Baixe o arquivo LabenuSystem.postman_collection.json
+$ Abra a ferramenta Postman
+$ Importe o arquivo e teste as rotas =)
 ```
 
 ### Desenvolvido com 💙️ por

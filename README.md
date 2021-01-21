@@ -33,7 +33,7 @@
 
 → Adicionar docente na turma;
 
-→ Pegar a idade de algum estudante a partir do id
+→ Pegar a idade de algum estudante a partir do id;
  ```
 
 ### Desafios:
@@ -51,7 +51,7 @@
 
 → Remover docente de uma turma;
 
-→ Mudar estudante de turma
+→ Mudar estudante de turma;
  ```
 
 ## Tecnologias Utilizadas
